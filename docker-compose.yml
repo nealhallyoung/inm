@@ -1,0 +1,16 @@
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:6.0
+    container_name: verdaccio_demo
+    ports:
+      - '5144:4873'
+    volumes:
+      - config:/verdaccio/conf
+
+volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/hall/apps/verdaccio/config
